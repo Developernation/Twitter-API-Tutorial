@@ -25,7 +25,7 @@ A_TOKEN_SECRET = '<your auth token secret>'
 #if we look at the url we see ---------------------------------->screen_name=
 #the screen_name is just the screen name of the person whose tweets we want to search
 url2 = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=SamGolbach&count=2'
-#------this is a requests object containing our data to authenticate into Twitter a
+#------this is a requests object containing our data to authenticate into Twitter 
 my_auth = OAuth1(CONSUMER_KEY,CONSUMER_SECRETS,A_TOKEN, A_TOKEN_SECRET)
 
 #-------------------------------------------------------------------------------
