@@ -2,7 +2,6 @@ import json
 import pprint
 import requests
 from requests_oauthlib import OAuth1
-
 #######################RESOURCES###############################################
 #-------------ABOUT oauth-------------------------------------------------------
 #https://stackoverflow.com/questions/26965624/cant-import-requests-oauthlib
@@ -23,11 +22,19 @@ A_TOKEN_SECRET = '<your auth token secret>'
 #-------------------------------------
 
 #--------------------Authentication process-------------------------------------
+#if we look at the url we see ---------------------------------->screen_name=
+#the screen_name is just the screen name of the person whose tweets we want to search
 url2 = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=SamGolbach&count=2'
+#------this is a requests object containing our data to authenticate into Twitter a
 my_auth = OAuth1(CONSUMER_KEY,CONSUMER_SECRETS,A_TOKEN, A_TOKEN_SECRET)
+
 #-------------------------------------------------------------------------------
-auth = requests.get(url2, auth=my_auth)
-auth.status_code
-pythonFormat = auth.json()
-pprint.pprint(pythonFormat)
+auth = requests.get(url2, auth=my_auth) #this is our GET request to "get"
+                                        #info from the server
+auth.status_code  # this is a numeric code that lets us know the status of our
+                  # request. Check below for more info on status codes
+                  # http://www.restapitutorial.com/httpstatuscodes.html
+
+pythonFormat = auth.json() #this is the JSON response from the server
+pprint.pprint(pythonFormat) # here we print the JSON response to the command line
 #--------------Converts JSON to Python------------------------------------------
