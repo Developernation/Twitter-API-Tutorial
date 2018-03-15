@@ -16,10 +16,10 @@ from requests_oauthlib import OAuth1
 ################################################################################
 
 #-------------------------------Twitter auth------------------------------------
-CONSUMERKEY = 	'<your key>'
-CONSUMERSECRETS = 	'<your consumer secrets>'
-AUTH_TOKEN = '<your auth token>'
-AUTH_TOKEN_SECRET = '<your auth token secret>'
+CONSUMER_KEY = 	'<your key>'
+CONSUMER_SECRETS = 	'<your consumer secrets>'
+A_TOKEN = '<your auth token>'
+A_TOKEN_SECRET = '<your auth token secret>'
 #-------------------------------------
 
 #--------------------Authentication process-------------------------------------
