@@ -12,6 +12,13 @@ from requests_oauthlib import OAuth1
 #------------Twitter API reference----------------------------------------------
 #https://developer.twitter.com/en/docs/api-reference-index
 #-------------------------------------------------------------------------------
+
+#-------------------Resources----\----------------------------------------------
+
+#http://www.mikaelbrunila.fi/2017/03/27/scraping-extracting-mapping-geodata-twitter/
+#https://knightlab.northwestern.edu/2014/03/15/a-beginners-guide-to-collecting-twitter-data-and-a-bit-of-web-scraping/
+#http://thepythondjango.com/scraping-10000-tweets-in-60-seconds-using-celery-rabbitmq-and-docker-clusterwith-rotating-proxy/
+
 ################################################################################
 
 #-------------------------------Twitter auth------------------------------------
@@ -25,7 +32,7 @@ A_TOKEN_SECRET = '<your auth token secret>'
 #if we look at the url we see ---------------------------------->screen_name=
 #the screen_name is just the screen name of the person whose tweets we want to search
 url2 = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=SamGolbach&count=2'
-#------this is a requests object containing our data to authenticate into Twitter 
+#------this is a requests object containing our data to authenticate into Twitter
 my_auth = OAuth1(CONSUMER_KEY,CONSUMER_SECRETS,A_TOKEN, A_TOKEN_SECRET)
 
 #-------------------------------------------------------------------------------
