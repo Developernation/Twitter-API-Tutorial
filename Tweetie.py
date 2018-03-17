@@ -11,7 +11,17 @@ from requests_oauthlib import OAuth1
 
 #------------Twitter API reference----------------------------------------------
 #https://developer.twitter.com/en/docs/api-reference-index
+
+#Search Twitter (keyword, location, etc)
+# https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators
+
+#yahoo Where On Earth ID
+# http://www.woeidlookup.com/
+
+#API Ref
+#http://www.mikestowe.com/demos/raml2htmlphp/index.php?path=/trends/place.json&action=GET
 #-------------------------------------------------------------------------------
+
 
 #-------------------Resources----\----------------------------------------------
 
@@ -42,6 +52,27 @@ auth.status_code  # this is a numeric code that lets us know the status of our
                   # request. Check below for more info on status codes
                   # http://www.restapitutorial.com/httpstatuscodes.html
 
-pythonFormat = auth.json() #this is the JSON response from the server
-pprint.pprint(pythonFormat) # here we print the JSON response to the command line
-#--------------Converts JSON to Python------------------------------------------
+pythonFormatI = auth.json() #this is the JSON response from the server
+                            #it is auto converted to python
+pprint.pprint(pythonFormatI) # here we print the JSON response to the command line
+#------------------We can also search by keyword--------------------------------
+
+# you can change "Sports" and "Steelers" to whatever you like
+url3 = 'https://api.twitter.com/1.1/search/tweets.json?q=%20Sports%20Steelers' #search by keyword
+
+#-----------------authenticating again-----------------------------------------
+auth2 = requests.get(url3, auth=my_auth)
+
+auth2.status_code
+
+pythonFormatII = auth2.json()
+
+pprint.pprint(pythonFormatII)
+#------------------------------------------------------------------------------
+
+#===========This is how you can access items in the python dict converted from json
+for item in range(len(pythonFormatII['statuses'])):
+    try:
+        print(pythonFormatII['statuses'][item]['geo'],'||',pythonFormatII['statuses'][item]['place']['full_name'],"||",pythonFormatII['statuses'][item]['text'])
+    except:
+        print('No place','||',pythonFormatII['statuses'][item]['user']['name'],pythonFormatII['statuses'][item]['text'])
